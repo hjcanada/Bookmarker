@@ -46,7 +46,7 @@ angular.module('myApp', ['ngMessages'])
 	}
 
 	$scope.visit = function(url) {
-		$window.open("https://www.facebook.com");
+		$window.open(url);
 	}
 
 	function fetchBookmarks() {
