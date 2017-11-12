@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<title>Bookmark Application</title>
+
+	<!-- Bootstrap core CSS -->
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom styles for this template -->
+	<link href="angular.css" rel="stylesheet">
+</head>
+
+<body>
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<a class="navbar-brand active" href="/">Choose Framework</a>
+			<div class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li><a class="nav-link" href="/native">Native</a></li>
+					<li><a class="nav-link active" href="/angular">Angular</a></li>
+					<li><a class="nav-link" href="/react">React</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div class="content" ng-controller="myCtrl">
+		<h1>Bookmarker via AngularJS 1.x Framework</h1>
+		<hr>
+
+		<div class="jumbotron text-center">
+			<fieldset>
+				<legend>Bookmark Your Favourate Sites</legend>
+				<form name="myForm" ng-submit="submit()" novalidate>
+					<div class="form-group">
+						<label for="siteName">Site Name</label>
+						<input type="text" id="siteName" name="siteName" class="form-control input-lg" placeholder="Enter the site name..." ng-model="site.name" required>
+						<div class="alert alert-warning" ng-messages="myForm.siteName.$error" ng-show="myForm.$submitted && myForm.siteName.$invalid">
+							<div ng-message="required">Site Name Cannot Be Empty!</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="siteUrl">Site Url</label>
+						<input type="url" id="siteUrl" name="siteUrl" class="form-control input-lg" placeholder="Enter the site URL..." ng-model="site.url" required>
+						<div class="alert alert-warning" ng-messages="myForm.siteUrl.$error" ng-show="myForm.$submitted && myForm.siteUrl.$invalid">
+							<div ng-message="required">Site Url Cannot Be Empty!</div>
+							<div ng-message="url">Invalid Url!</div>
+						</div>
+					</div>
+					<div class='alert alert-success' ng-show='showSuccess'>
+						<button type="button" class="close" ng-click="switchBool('showSuccess')">x</button>
+						Site Info Has Been Stored!
+					</div>
+					<input type="submit" value="Submit" class="btn btn-lg btn-primary">
+				</form>
+			</fieldset>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12" ng-repeat="bookmark in bookmarks">
+				<div class="well">
+					<h3>
+						{{ bookmark.siteName }}
+						<a class="btn btn-lg btn-danger pull-right" target="_blank" href="javascript:void(0)" ng-click="delete(bookmark.siteUrl)">Delete</a>
+						<button class="btn btn-lg btn-default pull-right" ng-click="visit(bookmark.siteUrl)">Visit</button>
+					</h3>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Core JavaScript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src='https://code.jquery.com/jquery-3.2.1.min.js'></script>
+	<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular.min.js'></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular-messages.min.js'></script>
+	<script src='angular.js'></script>
+</body>
+

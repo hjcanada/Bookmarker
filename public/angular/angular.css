@@ -1,0 +1,55 @@
+body {
+	width: 60%;
+	margin: 10px auto;
+}
+
+nav .container {
+	width: 70%;
+}
+
+nav .active {
+	color: #fff !important;
+}
+
+.content {
+	margin-top: 80px;
+}
+
+legend {
+	font-size: 20px;
+	border: 0;
+}
+
+form label {
+	font-size: 15px;
+	font-weight: 600;
+	margin-top: 20px;
+	margin-bottom: 5px;
+}
+
+form input {
+	width: 60% !important;
+	margin: 0 auto;
+}
+
+form .btn {
+	width: 30% !important;
+	margin: 20px auto;
+}
+
+form .alert {
+	width: 60% !important;
+	margin: 10px auto;
+}
+
+.well h3 {
+	margin-left: 20px;
+}
+
+.well .btn {
+	margin-top: -10px;
+}
+
+.well .btn-default {
+	margin-right: 20px;
+}
